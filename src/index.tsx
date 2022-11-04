@@ -1,5 +1,7 @@
 import { NativeModules, Platform } from 'react-native';
 
+export type VideoAdsProps = {};
+
 const LINKING_ERROR =
   `The package 'react-native-dongdm-adpie' doesn't seem to be linked. Make sure: \n\n` +
   Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
@@ -19,4 +21,9 @@ const DongdmAdpie = NativeModules.DongdmAdpie
 
 export function multiply(a: number, b: number): Promise<number> {
   return DongdmAdpie.multiply(a, b);
+}
+
+export function showAdPieVideoAds(props: VideoAdsProps): Promise<any> {
+  console.log('123');
+  return DongdmAdpie.showAdPieVideoAds(props);
 }
